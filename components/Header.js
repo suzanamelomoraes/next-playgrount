@@ -4,7 +4,7 @@ import React from "react";
 
 function Header() {
   return (
-    <div>
+    <div className={headerStyles.header}>
       <h1 className={headerStyles.title}>
         <span>Next</span> Playground
       </h1>

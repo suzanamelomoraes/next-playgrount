@@ -2,7 +2,7 @@ import { server } from "../../../config";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-function ArticleId({ article }) {
+function ArticleById({ article }) {
   //   const router = useRouter();
   //   const { id } = router.query;
 
@@ -84,4 +84,4 @@ export const getStaticPaths = async () => {
 //   };
 // };
 
-export default ArticleId;
+export default ArticleById;

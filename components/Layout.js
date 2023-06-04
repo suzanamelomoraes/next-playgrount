@@ -1,12 +1,14 @@
 import React from "react";
 import Nav from "./Nav";
 import Header from "./Header";
+import Meta from "./Meta";
 import styles from "../styles/Layout.module.css";
 import Dropdown from "./Dropdown";
 import dynamic from "next/dynamic";
 const GaugeChart = dynamic(() => import("react-gauge-chart"), { ssr: false });
 
 function Layout({ children }) {
+  // playing around to display a GougeChart
   const options = [
     { label: "Fruit", value: "fruit" },
 
@@ -22,6 +24,7 @@ function Layout({ children }) {
   };
   return (
     <>
+      <Meta />
       <Nav />
       <div className={styles.container}>
         <main className={styles.main}>

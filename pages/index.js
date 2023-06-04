@@ -3,9 +3,10 @@ import Head from "next/head";
 import ArticleList from "../components/ArticleList";
 
 export default function Home({ articles }) {
+  // Head was removed from here as a custom and reusable meta component was created
   return (
     <div>
-      <Head>
+      {/* <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="keywords"
@@ -17,7 +18,7 @@ export default function Home({ articles }) {
         />
         <meta charSet="utf-8" />
         <title>Next Playground</title>
-      </Head>
+      </Head> */}
       <ArticleList articles={articles} />
     </div>
   );

@@ -1,5 +1,6 @@
 import { server } from "../../../config";
 import Link from "next/link";
+import Meta from "@/components/components/Meta";
 import { useRouter } from "next/router";
 
 function ArticleById({ article }) {
@@ -8,6 +9,7 @@ function ArticleById({ article }) {
 
   return (
     <>
+      <Meta title={article.title} description={article.excerpt} />
       <h1>{article.title}</h1>
       <p>{article.body}</p>
       <br />
@@ -42,6 +44,8 @@ export const getStaticPaths = async () => {
   };
 };
 
+// used for dynamic SSG pages / static pages
+
 // export const getStaticProps = async (context) => {
 //     const res = await fetch(
 //       `https://jsonplaceholder.typicode.com/posts/${context.params.id}`
@@ -66,9 +70,11 @@ export const getStaticPaths = async () => {
 
 //     return {
 //       paths,
-//       fallback: false,
+//       fallback: false, (to return a 404 page if the id does not exist)
 //     };
 //   };
+
+// to fetch the page each request
 
 // export const getServerSideProps = async (context) => {
 //   const res = await fetch(
@@ -83,5 +89,14 @@ export const getStaticPaths = async () => {
 //     },
 //   };
 // };
+
+// How to export a static website:
+// include the command "next export" to scripts/package.json
+// e.g "build": "next build && next export"
+// build for production and export as a static website
+// it creates out folder, which is a complete static website you can run in a server
+// e.g using npm -i serve
+// e.g serve -s out -p 8000
+// open localhost:8000 and the website is there
 
 export default ArticleById;
